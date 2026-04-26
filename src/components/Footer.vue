@@ -18,7 +18,7 @@
         <div>
           <h4 class="text-lg font-semibold mb-4">联系方式</h4>
           <ul class="space-y-2 text-gray-400">
-            <li>地址：青岛市崂山区王哥庄街道商业街红绿灯北200米</li>
+            <li>地址：青岛市崂山区王哥庄街道钰学装潢材料店</li>
             <li>电话：15054277628</li>
             <li>邮箱：info@钰学装潢材料店.com</li>
           </ul>

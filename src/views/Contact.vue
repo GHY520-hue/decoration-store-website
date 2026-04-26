@@ -28,7 +28,7 @@
                 </div>
                 <div>
                   <h3 class="text-lg font-medium mb-2">地址</h3>
-                  <p class="text-gray-600">青岛市崂山区王哥庄街道商业街红绿灯北200米</p>
+                  <p class="text-gray-600">青岛市崂山区王哥庄街道钰学装潢材料店</p>
                 </div>
               </div>
               <div class="flex items-start">
@@ -72,9 +72,9 @@
           <!-- 地图 -->
           <div class="bg-white rounded-lg shadow-md overflow-hidden">
             <div class="h-96 w-full">
-              <!-- 使用Google Maps嵌入 -->
+              <!-- Google Maps 嵌入 - 青岛市崂山区王哥庄街道钰学装潢材料店 -->
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3053.939672792131!2d116.4663911153672!3d39.90421049151078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f1acf7c632f555%3A0x4f9f3b6c6f603862!2z5YyX5Lqs5biD55CG5Luj6YCa5Y+3!5e0!3m2!1szh-CN!2sus!4v1684586320000!5m2!1szh-CN!2sus" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.789!2d120.526!3d36.244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5YyX5Lqs5biD55CG5Luj6YCa55Sw5bGx6Le1!5e0!3m2!1szh-CN!2scn!4v1684586320000!5m2!1szh-CN!2scn"
                 width="100%" 
                 height="100%" 
                 style="border:0;" 
