@@ -12,16 +12,23 @@
             <div class="container mx-auto px-4">
               <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">{{ banner.title }}</h2>
               <p class="text-xl text-white mb-8 max-w-2xl">{{ banner.description }}</p>
-              <router-link to="/products" class="bg-amber-600 hover:bg-amber-700 text-white font-medium px-6 py-3 rounded-lg transition-colors">
+              <router-link to="/products" class="bg-amber-600 hover:bg-amber-700 active:bg-amber-800 text-white font-medium px-8 py-4 md:px-6 md:py-3 rounded-lg transition-colors text-lg md:text-base inline-block min-w-[160px] text-center">
                 浏览产品
               </router-link>
             </div>
           </div>
         </div>
       </div>
-      <!-- 轮播指示器 -->
-      <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
-        <button v-for="(banner, index) in banners" :key="index" class="w-3 h-3 rounded-full transition-colors" :class="{ 'bg-white': currentBanner === index, 'bg-white/50': currentBanner !== index }" @click="currentBanner = index"></button>
+      <!-- 轮播指示器 - 增大触摸区域 -->
+      <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-3">
+        <button 
+          v-for="(banner, index) in banners" 
+          :key="index" 
+          class="w-5 h-5 md:w-3 md:h-3 rounded-full transition-all active:scale-125" 
+          :class="{ 'bg-white scale-110': currentBanner === index, 'bg-white/50 hover:bg-white/70': currentBanner !== index }" 
+          @click="currentBanner = index"
+          :aria-label="'切换到第' + (index + 1) + '张轮播图'"
+        ></button>
       </div>
     </section>
     
@@ -35,9 +42,9 @@
             <div class="p-6">
               <h3 class="text-xl font-semibold mb-2">{{ project.title }}</h3>
               <p class="text-gray-600 mb-4 line-clamp-2">{{ project.description }}</p>
-              <router-link :to="`/projects/${project.id}`" class="text-amber-600 hover:text-amber-800 font-medium flex items-center">
+              <router-link :to="`/projects/${project.id}`" class="text-amber-600 hover:text-amber-800 active:bg-amber-50 font-medium flex items-center px-3 py-2 -mx-3 rounded-lg transition-colors text-base md:text-sm">
                 查看详情
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </router-link>
@@ -45,7 +52,7 @@
           </div>
         </div>
         <div class="text-center mt-12">
-          <router-link to="/projects" class="bg-white border border-amber-600 text-amber-600 hover:bg-amber-50 font-medium px-6 py-3 rounded-lg transition-colors inline-block">
+          <router-link to="/projects" class="bg-white border-2 border-amber-600 text-amber-600 hover:bg-amber-50 active:bg-amber-100 font-medium px-8 py-4 md:px-6 md:py-3 rounded-lg transition-colors inline-block text-lg md:text-base min-w-[180px] text-center">
             查看更多案例
           </router-link>
         </div>
@@ -64,7 +71,7 @@
               <p class="text-gray-600 text-sm mb-4 line-clamp-2">{{ product.description }}</p>
               <div class="flex justify-between items-center">
                 <span class="text-amber-600 font-bold">¥{{ product.price }}</span>
-                <router-link :to="`/products/${product.id}`" class="bg-amber-600 hover:bg-amber-700 text-white font-medium px-4 py-2 rounded-lg transition-colors text-sm">
+                <router-link :to="`/products/${product.id}`" class="bg-amber-600 hover:bg-amber-700 active:bg-amber-800 text-white font-medium px-5 py-3 md:px-4 md:py-2 rounded-lg transition-colors text-base md:text-sm whitespace-nowrap">
                   查看详情
                 </router-link>
               </div>
@@ -72,7 +79,7 @@
           </div>
         </div>
         <div class="text-center mt-12">
-          <router-link to="/products" class="bg-white border border-amber-600 text-amber-600 hover:bg-amber-50 font-medium px-6 py-3 rounded-lg transition-colors inline-block">
+          <router-link to="/products" class="bg-white border-2 border-amber-600 text-amber-600 hover:bg-amber-50 active:bg-amber-100 font-medium px-8 py-4 md:px-6 md:py-3 rounded-lg transition-colors inline-block text-lg md:text-base min-w-[180px] text-center">
             查看更多产品
           </router-link>
         </div>

@@ -25,19 +25,19 @@
             </div>
           </div>
           <!-- 轮播控制 -->
-          <button @click="prevImage" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          <button @click="prevImage" class="absolute left-3 md:left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white active:bg-white text-gray-800 rounded-full p-3 md:p-2 active:scale-95 transition-all shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <button @click="nextImage" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          <button @click="nextImage" class="absolute right-3 md:right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white active:bg-white text-gray-800 rounded-full p-3 md:p-2 active:scale-95 transition-all shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </button>
-          <!-- 轮播指示器 -->
-          <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
-            <button v-for="(image, index) in project?.image_urls" :key="index" class="w-3 h-3 rounded-full transition-colors" :class="{ 'bg-white': currentImage === index, 'bg-white/50': currentImage !== index }" @click="currentImage = index"></button>
+          <!-- 轮播指示器 - 增大触摸区域 -->
+          <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-3">
+            <button v-for="(image, index) in project?.image_urls" :key="index" class="w-5 h-5 md:w-3 md:h-3 rounded-full transition-all active:scale-125" :class="{ 'bg-white scale-110': currentImage === index, 'bg-white/50 hover:bg-white/70': currentImage !== index }" @click="currentImage = index"></button>
           </div>
         </div>
         
@@ -55,8 +55,8 @@
               <img :src="relatedProject.image_urls[0]" alt="案例图片" class="w-full h-48 object-cover" />
               <div class="p-4">
                 <h3 class="text-lg font-semibold mb-2">{{ relatedProject.title }}</h3>
-                <router-link :to="`/projects/${relatedProject.id}`" class="text-amber-600 hover:text-amber-800 font-medium text-sm">
-                  查看详情
+                <router-link :to="`/projects/${relatedProject.id}`" class="text-amber-600 hover:text-amber-800 active:bg-amber-50 font-medium px-3 py-2 -ml-3 rounded-lg transition-colors text-base md:text-sm inline-block">
+                  查看详情 →
                 </router-link>
               </div>
             </div>

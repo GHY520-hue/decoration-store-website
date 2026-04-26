@@ -35,11 +35,11 @@
               <p class="text-gray-700 leading-relaxed">{{ product?.description }}</p>
             </div>
             
-            <div class="flex gap-4">
-              <button class="bg-amber-600 hover:bg-amber-700 text-white font-medium px-6 py-3 rounded-lg transition-colors flex-1">
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button class="bg-amber-600 hover:bg-amber-700 active:bg-amber-800 text-white font-medium px-8 py-4 md:px-6 md:py-3 rounded-lg transition-colors flex-1 text-lg md:text-base active:scale-[0.98]">
                 立即购买
               </button>
-              <button class="border border-amber-600 text-amber-600 hover:bg-amber-50 font-medium px-6 py-3 rounded-lg transition-colors flex-1">
+              <button class="border-2 border-amber-600 text-amber-600 hover:bg-amber-50 active:bg-amber-100 font-medium px-8 py-4 md:px-6 md:py-3 rounded-lg transition-colors flex-1 text-lg md:text-base active:scale-[0.98]">
                 加入购物车
               </button>
             </div>
@@ -54,10 +54,10 @@
               <img :src="relatedProduct.image_url" alt="产品图片" class="w-full h-48 object-cover" />
               <div class="p-4">
                 <h3 class="text-lg font-semibold mb-2">{{ relatedProduct.name }}</h3>
-                <div class="flex justify-between items-center">
-                  <span class="text-amber-600 font-bold">¥{{ relatedProduct.price }}</span>
-                  <router-link :to="`/products/${relatedProduct.id}`" class="text-amber-600 hover:text-amber-800 font-medium text-sm">
-                    查看详情
+                <div class="flex justify-between items-center gap-2">
+                  <span class="text-amber-600 font-bold text-base">¥{{ relatedProduct.price }}</span>
+                  <router-link :to="`/products/${relatedProduct.id}`" class="text-amber-600 hover:text-amber-800 active:bg-amber-50 font-medium px-3 py-2 -mr-3 rounded-lg transition-colors">
+                    查看详情 →
                   </router-link>
                 </div>
               </div>

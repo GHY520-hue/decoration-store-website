@@ -63,3 +63,34 @@ body {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
+
+/* ========== 移动端触控优化 ========== */
+
+/* 禁用移动端点击高亮（避免蓝色闪烁） */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 所有可点击元素最小触摸区域 44x44 */
+a, button, [role="button"], input, select, textarea {
+  min-height: 44px;
+  touch-action: manipulation;
+}
+
+/* 移动端上移除最小高度限制（避免布局问题） */
+@media (min-width: 768px) {
+  a, button, [role="button"], input, select, textarea {
+    min-height: auto;
+  }
+}
+
+/* 触控反馈动画 */
+@keyframes touchPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.96); }
+  100% { transform: scale(1); }
+}
+
+.touch-feedback:active {
+  animation: touchPulse 0.15s ease-out;
+}

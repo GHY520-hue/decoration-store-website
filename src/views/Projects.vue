@@ -20,9 +20,9 @@
             <div class="p-6">
               <h3 class="text-xl font-semibold mb-2">{{ project.title }}</h3>
               <p class="text-gray-600 mb-4 line-clamp-3">{{ project.description }}</p>
-              <div class="flex justify-between items-center">
+              <div class="flex justify-between items-center gap-2">
                 <span class="text-gray-500 text-sm">{{ project.create_time }}</span>
-                <router-link :to="`/projects/${project.id}`" class="bg-amber-600 hover:bg-amber-700 text-white font-medium px-4 py-2 rounded-lg transition-colors text-sm">
+                <router-link :to="`/projects/${project.id}`" class="bg-amber-600 hover:bg-amber-700 active:bg-amber-800 text-white font-medium px-5 py-3 md:px-4 md:py-2 rounded-lg transition-colors text-base md:text-sm whitespace-nowrap">
                   查看详情
                 </router-link>
               </div>

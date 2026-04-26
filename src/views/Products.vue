@@ -14,11 +14,11 @@
     <!-- 分类导航 -->
     <section class="py-8 bg-white border-b">
       <div class="container mx-auto px-4">
-        <div class="flex flex-wrap justify-center gap-4">
-          <button @click="onCategoryChange('全部')" class="px-6 py-2 rounded-full transition-colors" :class="{ 'bg-amber-600 text-white': selectedCategory === '全部', 'bg-gray-100 text-gray-700 hover:bg-gray-200': selectedCategory !== '全部' }">
+        <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+          <button @click="onCategoryChange('全部')" class="px-6 py-3 md:py-2 rounded-full text-base md:text-sm font-medium transition-all active:scale-95" :class="{ 'bg-amber-600 text-white shadow-md': selectedCategory === '全部', 'bg-gray-100 text-gray-700 hover:bg-gray-200 active:bg-gray-300': selectedCategory !== '全部' }">
             全部
           </button>
-          <button v-for="category in categories" :key="category" @click="onCategoryChange(category)" class="px-6 py-2 rounded-full transition-colors" :class="{ 'bg-amber-600 text-white': selectedCategory === category, 'bg-gray-100 text-gray-700 hover:bg-gray-200': selectedCategory !== category }">
+          <button v-for="category in categories" :key="category" @click="onCategoryChange(category)" class="px-6 py-3 md:py-2 rounded-full text-base md:text-sm font-medium transition-all active:scale-95" :class="{ 'bg-amber-600 text-white shadow-md': selectedCategory === category, 'bg-gray-100 text-gray-700 hover:bg-gray-200 active:bg-gray-300': selectedCategory !== category }">
             {{ category }}
           </button>
         </div>
@@ -34,9 +34,9 @@
             <div class="p-6">
               <h3 class="text-lg font-semibold mb-2">{{ product.name }}</h3>
               <p class="text-gray-600 text-sm mb-4 line-clamp-2">{{ product.description }}</p>
-              <div class="flex justify-between items-center">
-                <span class="text-amber-600 font-bold">¥{{ product.price }}</span>
-                <router-link :to="`/products/${product.id}`" class="bg-amber-600 hover:bg-amber-700 text-white font-medium px-4 py-2 rounded-lg transition-colors text-sm">
+              <div class="flex justify-between items-center gap-2">
+                <span class="text-amber-600 font-bold text-lg">¥{{ product.price }}</span>
+                <router-link :to="`/products/${product.id}`" class="bg-amber-600 hover:bg-amber-700 active:bg-amber-800 text-white font-medium px-5 py-3 md:px-4 md:py-2 rounded-lg transition-colors text-base md:text-sm whitespace-nowrap">
                   查看详情
                 </router-link>
               </div>
