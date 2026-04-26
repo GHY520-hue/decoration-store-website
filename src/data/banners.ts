@@ -2,19 +2,19 @@
 export const banners = [
   {
     id: 1,
-    image: 'https://picsum.photos/seed/banner-living/1920/800',
+    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&h=600&fit=crop',
     title: '打造温馨舒适的家',
     description: '提供高品质的装修材料和专业的装修服务，让您的家更加温馨舒适。'
   },
   {
     id: 2,
-    image: 'https://picsum.photos/seed/banner-kitchen/1920/800',
+    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=600&fit=crop',
     title: '现代厨房解决方案',
     description: '精选优质厨房材料，打造时尚实用的烹饪空间。'
   },
   {
     id: 3,
-    image: 'https://picsum.photos/seed-banner-bedroom/1920/800',
+    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&h=600&fit=crop',
     title: '舒适卧室设计',
     description: '为您打造宁静舒适的睡眠环境，让每一天都充满活力。'
   }

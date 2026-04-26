@@ -85,11 +85,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted } from 'vue';
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
 import { banners as bannerData } from '../data/banners';
-import { projectsApi, productsApi } from '../api';
+import { staticProducts } from '../data/products';
+import { staticProjects } from '../data/projects';
 
 // Banner数据
 const banners = bannerData;
@@ -97,21 +98,29 @@ const banners = bannerData;
 // 轮播状态
 const currentBanner = ref(0);
 
-// 数据
-const projects = ref([]);
-const products = ref([]);
+// 数据 - 使用静态fallback数据作为默认值
+const projects = [...staticProjects];
+const products = [...staticProducts];
 
-// 加载数据
+// 加载数据（尝试API，失败则使用静态数据）
 async function loadData() {
   try {
+    // 动态导入API模块，避免在没有后端时加载报错
+    const { projectsApi, productsApi } = await import('../api');
     const [projectsRes, productsRes] = await Promise.all([
       projectsApi.getAll(),
       productsApi.getAll(),
     ]);
-    projects.value = projectsRes.slice(0, 3);
-    products.value = productsRes.slice(0, 4);
-  } catch (error) {
-    console.error('加载数据失败:', error);
+    // 只有API返回了有效数据才覆盖静态数据
+    if (projectsRes && projectsRes.length > 0) {
+      projects.value = projectsRes.slice(0, 3);
+    }
+    if (productsRes && productsRes.length > 0) {
+      products.value = productsRes.slice(0, 4);
+    }
+  } catch {
+    // API不可用时使用静态数据（已作为默认值赋值）
+    console.log('使用静态展示数据');
   }
 }
 

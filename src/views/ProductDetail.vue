@@ -77,29 +77,36 @@ import { ref, computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
-import { productsApi } from '../api';
+import { staticProducts } from '../data/products';
 
 const route = useRoute();
 const id = computed(() => route.params.id as string);
 
-// 当前产品
-const product = ref(null);
-const allProducts = ref([]);
+// 当前产品 - 从静态数据中查找
+const product = computed(() => {
+  return staticProducts.find(p => p.id === parseInt(id.value)) || staticProducts[0];
+});
+const allProducts = ref([...staticProducts]);
 
 // 相关产品
 const relatedProducts = computed(() => {
-  return allProducts.value.filter(p => p.id !== parseInt(id.value) && p.category === product.value?.category).slice(0, 4);
+  return allProducts.value.filter((p: any) => p.id !== parseInt(id.value) && p.category === product.value?.category).slice(0, 4);
 });
 
-// 加载数据
+// 尝试从API加载数据
 async function loadProduct() {
   try {
+    const { productsApi } = await import('../api');
     const productData = await productsApi.getById(parseInt(id.value));
-    product.value = productData;
-    const allData = await productsApi.getAll();
-    allProducts.value = allData;
-  } catch (error) {
-    console.error('加载产品失败:', error);
+    if (productData) {
+      // API返回时更新（静态数据作为fallback保持不变）
+      const allData = await productsApi.getAll();
+      if (allData && allData.length > 0) {
+        allProducts.value = allData;
+      }
+    }
+  } catch {
+    // 使用静态数据
   }
 }
 

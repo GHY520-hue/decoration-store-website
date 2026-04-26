@@ -75,7 +75,7 @@ import { ref, computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
-import { projectsApi } from '../api';
+import { staticProjects } from '../data/projects';
 
 const route = useRoute();
 const id = computed(() => route.params.id as string);
@@ -83,27 +83,30 @@ const id = computed(() => route.params.id as string);
 // 轮播状态
 const currentImage = ref(0);
 
-// 当前案例
-const project = ref(null);
-const allProjects = ref([]);
+// 当前案例 - 从静态数据中查找
+const project = computed(() => {
+  return staticProjects.find(p => p.id === parseInt(id.value)) || staticProjects[0];
+});
+const allProjects = ref([...staticProjects]);
 
 // 相关案例
 const relatedProjects = computed(() => {
-  return allProjects.value.filter(p => p.id !== parseInt(id.value)).slice(0, 3);
+  return allProjects.value.filter((p: any) => p.id !== parseInt(id.value)).slice(0, 3);
 });
 
-// 加载数据
+// 尝试从API加载数据
 async function loadProject() {
   try {
+    const { projectsApi } = await import('../api');
     const projectData = await projectsApi.getById(parseInt(id.value));
-    project.value = {
-      ...projectData,
-      image_urls: JSON.parse(projectData.image_urls || '[]')
-    };
-    const allData = await projectsApi.getAll();
-    allProjects.value = allData;
-  } catch (error) {
-    console.error('加载案例失败:', error);
+    if (projectData) {
+      const allData = await projectsApi.getAll();
+      if (allData && allData.length > 0) {
+        allProjects.value = allData;
+      }
+    }
+  } catch {
+    // 使用静态数据
   }
 }
 

@@ -1,4 +1,4 @@
-// 案例数据 - 在这里管理所有完工案例
+// 静态案例数据 - 作为fallback使用
 export interface Project {
   id: number;
   title: string;
@@ -7,82 +7,59 @@ export interface Project {
   create_time: string;
 }
 
-export const projects: Project[] = [
+export const staticProjects: Project[] = [
   {
     id: 1,
-    title: '现代简约客厅',
-    description: '采用现代简约风格装修的客厅，明亮通透，家具搭配合理，营造温馨舒适的居住环境。',
+    title: '现代简约三居室',
+    description: '120平米现代简约风格装修，采用开放式厨房设计，大面积落地窗引入自然光线，整体色调以白、灰、木色为主，营造温馨舒适的居家环境。全屋使用环保材料，注重实用性与美观性的完美结合。',
     image_urls: [
-      'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20simple%20living%20room%2C%20bright%2C%20spacious%2C%20natural%20light%2C%20high%20quality%20photography&image_size=landscape_16_9',
-      'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20living%20room%20detail%2C%20furniture%20arrangement%2C%20decorative%20elements%2C%20high%20quality%20photography&image_size=landscape_16_9'
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&h=400&fit=crop'
     ],
-    create_time: '2023-06-15'
+    create_time: '2025-12-15'
   },
   {
     id: 2,
-    title: '北欧风格卧室',
-    description: '北欧风格卧室，简洁大方，色彩柔和，给人宁静放松的感觉。',
+    title: '北欧风两居室改造',
+    description: '85平米老旧小区改造项目，从拆改到完工历时45天。北欧风格设计，大量使用原木元素和棉麻软装，打造清新自然的居住空间。特别定制了整墙书柜和隐藏式收纳空间。',
     image_urls: [
-      'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=nordic%20style%20bedroom%2C%20clean%2C%20soft%20colors%2C%20comfortable%2C%20high%20quality%20photography&image_size=landscape_16_9',
-      'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=nordic%20bedroom%20detail%2C%20bedding%2C%20decorations%2C%20high%20quality%20photography&image_size=landscape_16_9'
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop'
     ],
-    create_time: '2023-05-20'
+    create_time: '2025-11-20'
   },
   {
     id: 3,
-    title: '现代厨房',
-    description: '现代风格厨房，功能齐全，设计合理，为烹饪提供便利。',
+    title: '新中式别墅客厅',
+    description: '300平独栋别墅一层公共区域装修，新中式风格融合现代元素。精选红木家具搭配大理石地面，山水背景墙与吊顶造型相呼应，彰显东方美学与现代生活的和谐统一。',
     image_urls: [
-      'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20kitchen%20design%2C%20bright%2C%20functional%2C%20high%20quality%20materials%2C%20clean%20lines&image_size=landscape_16_9',
-      'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20kitchen%20detail%2C%20appliances%2C%20countertops%2C%20storage%2C%20high%20quality%20photography&image_size=landscape_16_9'
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&h=400&fit=crop'
     ],
-    create_time: '2023-04-10'
+    create_time: '2025-10-08'
   },
   {
     id: 4,
-    title: '日式风格书房',
-    description: '日式风格书房，简约实用，营造安静的学习环境。',
+    title: '轻奢风格复式楼',
+    description: '150平米复式住宅，轻奢装修风格。金色线条点缀，丝绒材质沙发，水晶吊灯，大理石纹瓷砖。楼梯下方巧妙利用为吧台区域，每一处细节都体现主人对品质生活的追求。',
     image_urls: [
-      'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=japanese%20style%20study%20room%2C%20minimalist%2C%20functional%2C%20calm%20environment%2C%20high%20quality%20photography&image_size=landscape_16_9',
-      'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=japanese%20study%20room%20detail%2C%20desk%2C%20bookshelves%2C%20decorations%2C%20high%20quality%20photography&image_size=landscape_16_9'
+      'https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=600&h=400&fit=crop'
     ],
-    create_time: '2023-03-05'
+    create_time: '2025-09-18'
   },
   {
     id: 5,
-    title: '现代浴室',
-    description: '现代风格浴室，干净整洁，功能齐全，提供舒适的洗浴体验。',
+    title: '日式原木风小户型',
+    description: '65平米日式MUJI风格装修，障子门、榻榻米、原木家具。通过巧妙的收纳设计和灯光布局，让小户型也能拥有宽敞舒适的居住体验。',
     image_urls: [
-      'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20bathroom%20design%2C%20clean%2C%20functional%2C%20high%20quality%20materials%2C%20bright%20lighting&image_size=landscape_16_9',
-      'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20bathroom%20detail%2C%20shower%2C%20sink%2C%20toilet%2C%20high%20quality%20photography&image_size=landscape_16_9'
+      'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=400&fit=crop'
     ],
-    create_time: '2023-02-18'
+    create_time: '2025-08-25'
   },
   {
     id: 6,
-    title: '美式风格餐厅',
-    description: '美式风格餐厅，温馨舒适，适合家庭聚餐和朋友聚会。',
+    title: '工业风LOFT公寓',
+    description: '100平米LOFT公寓工业风改造，裸露水泥墙面配暖色灯光，铁艺楼梯，复古皮质沙发，开放式工作区与生活区融合，充满艺术气息的年轻化空间。',
     image_urls: [
-      'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=american%20style%20dining%20room%2C%20warm%2C%20comfortable%2C%20family%20friendly%2C%20high%20quality%20photography&image_size=landscape_16_9',
-      'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=american%20dining%20room%20detail%2C%20dining%20table%2C%20chairs%2C%20decorations%2C%20high%20quality%20photography&image_size=landscape_16_9'
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop'
     ],
-    create_time: '2023-01-22'
+    create_time: '2025-07-12'
   }
 ];
-
-// 如何添加新的案例：
-// 1. 复制上面的案例对象格式
-// 2. 替换id为新的数字（不重复即可）
-// 3. 替换image_urls为你的图片链接数组（可以有多张图片）
-// 4. 修改其他字段
-// 示例：
-// {
-//   id: 7,
-//   title: '你的案例标题',
-//   description: '你的案例描述',
-//   image_urls: [
-//     '/images/project1-1.jpg',
-//     '/images/project1-2.jpg'
-//   ],
-//   create_time: '2023-07-01'
-// }

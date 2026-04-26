@@ -60,25 +60,31 @@
 import { ref, computed, onMounted } from 'vue';
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
-import { productsApi } from '../api';
+import { staticProducts } from '../data/products';
 
 // 分类列表
-const categories = ['家具', '材料', '地板', '墙纸'];
+const categories = ['涂料', '地板', '灯具', '瓷砖', '橱柜', '卫浴', '门窗'];
 
 // 选中的分类
 const selectedCategory = ref('全部');
 
-// 产品数据
-const products = ref([]);
-const filteredProducts = computed(() => products.value);
+// 产品数据 - 使用静态数据作为默认值
+const products = ref([...staticProducts]);
+const filteredProducts = computed(() => {
+  if (selectedCategory.value === '全部') return products.value;
+  return products.value.filter((p: any) => p.category === selectedCategory.value);
+});
 
-// 加载产品
+// 加载产品（尝试API，失败则使用静态数据）
 async function loadProducts(category?: string) {
   try {
+    const { productsApi } = await import('../api');
     const data = await productsApi.getAll(category && category !== '全部' ? category : undefined);
-    products.value = data;
-  } catch (error) {
-    console.error('加载产品失败:', error);
+    if (data && data.length > 0) {
+      products.value = data;
+    }
+  } catch {
+    // 使用静态数据（已作为默认值赋值）
   }
 }
 

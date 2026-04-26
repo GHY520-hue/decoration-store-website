@@ -41,18 +41,21 @@
 import { ref, onMounted } from 'vue';
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
-import { projectsApi } from '../api';
+import { staticProjects } from '../data/projects';
 
-// 案例数据
-const projects = ref([]);
+// 案例数据 - 使用静态数据作为默认值
+const projects = ref([...staticProjects]);
 
-// 加载数据
+// 加载数据（尝试API，失败则使用静态数据）
 async function loadProjects() {
   try {
+    const { projectsApi } = await import('../api');
     const data = await projectsApi.getAll();
-    projects.value = data;
-  } catch (error) {
-    console.error('加载案例失败:', error);
+    if (data && data.length > 0) {
+      projects.value = data;
+    }
+  } catch {
+    // 使用静态数据（已作为默认值赋值）
   }
 }
 
