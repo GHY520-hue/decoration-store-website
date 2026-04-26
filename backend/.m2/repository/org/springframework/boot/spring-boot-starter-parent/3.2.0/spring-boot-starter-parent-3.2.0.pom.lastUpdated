@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sun Apr 26 13:28:16 UTC 2026
+@default-aliyunmaven-https\://maven.aliyun.com/repository/public/.lastUpdated=1777210096513
+https\://maven.aliyun.com/repository/public/.error=Could not transfer artifact org.springframework.boot\:spring-boot-starter-parent\:pom\:3.2.0 from/to aliyunmaven (https\://maven.aliyun.com/repository/public)\: Connect to maven.aliyun.com\:443 [maven.aliyun.com/114.80.179.163, maven.aliyun.com/222.73.33.14, maven.aliyun.com/222.73.33.16, maven.aliyun.com/222.73.33.10, maven.aliyun.com/222.73.33.11, maven.aliyun.com/222.73.33.13, maven.aliyun.com/114.80.179.170, maven.aliyun.com/114.80.179.164, maven.aliyun.com/222.73.33.9, maven.aliyun.com/222.73.33.12, maven.aliyun.com/222.73.33.15, maven.aliyun.com/114.80.179.165] failed\: Connect timed out

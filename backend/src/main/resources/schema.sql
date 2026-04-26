@@ -1,0 +1,24 @@
+-- 创建products表
+CREATE TABLE IF NOT EXISTS products (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  category VARCHAR(100) NOT NULL,
+  description TEXT,
+  image_url VARCHAR(255) NOT NULL,
+  price DECIMAL(10, 2) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  deleted TINYINT DEFAULT 0,
+  INDEX idx_category (category)
+);
+
+-- 创建projects表
+CREATE TABLE IF NOT EXISTS projects (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  image_urls TEXT NOT NULL COMMENT 'JSON格式的图片路径数组',
+  create_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  deleted TINYINT DEFAULT 0
+);
